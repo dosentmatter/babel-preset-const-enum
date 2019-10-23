@@ -1,0 +1,45 @@
+{
+  "name": "babel-preset-const-enum",
+  "version": "0.0.0",
+  "description": "Babel preset for TypeScript `const` enums",
+  "repository": "https://github.com/dosentmatter/babel-preset-const-enum",
+  "author": "Kevin Lau",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "keywords": [
+    "babel-preset",
+    "typescript",
+    "const",
+    "enum",
+    "terser",
+    "uglify",
+    "minify",
+    "compress"
+  ],
+  "scripts": {
+    "build": "babel src --out-dir lib",
+    "prepublishOnly": "yarn run build",
+    "test": "jest",
+    "prettier-fix": "prettier --write src/**/*.js"
+  },
+  "peerDependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@babel/generator": "^7.0.0-0"
+  },
+  "dependencies": {
+    "@babel/helper-plugin-utils": "^7.0.0",
+    "babel-plugin-const-enum": "^0.0.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.5.0",
+    "@babel/generator": "^7.5.0",
+    "@babel/preset-env": "^7.5.0",
+    "babel-jest": "^24.8.0",
+    "jest": "^24.8.0",
+    "prettier": "^1.18.2"
+  },
+  "files": [
+    "lib"
+  ]
+}
