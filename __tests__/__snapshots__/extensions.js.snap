@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Transforms *.* 1`] = `
+"\\"use strict\\";
+
+enum Direction {
+  Left,
+  Right,
+  Down,
+  Up,
+}
+;"
+`;
+
+exports[`Transforms *.ts 1`] = `
+"\\"use strict\\";
+
+enum Direction {
+  Left,
+  Right,
+  Down,
+  Up,
+}
+;"
+`;
+
+exports[`Transforms *.tsx 1`] = `
+"\\"use strict\\";
+
+enum Direction {
+  Left,
+  Right,
+  Down,
+  Up,
+}
+;"
+`;
