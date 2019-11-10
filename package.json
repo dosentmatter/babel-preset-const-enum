@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@babel/helper-plugin-utils": "^7.0.0",
-    "babel-plugin-const-enum": "^0.0.3"
+    "babel-plugin-const-enum": "^0.0.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
