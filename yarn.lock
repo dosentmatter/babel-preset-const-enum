@@ -1068,10 +1068,10 @@ babel-jest@^24.8.0, babel-jest@^24.9.0:
     chalk "^2.4.2"
     slash "^2.0.0"
 
-babel-plugin-const-enum@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/babel-plugin-const-enum/-/babel-plugin-const-enum-0.0.3.tgz#9d1c65f8a509b6a200664582987cedbcacb94404"
-  integrity sha512-RSCjlft4nOVz44LbQ2YbwGiam8lmfUmSWOCh+6RYwvuaeirlvlWoWyJZTFTLHdUIv5MXZnhUd/9I7n0TZZmKMA==
+babel-plugin-const-enum@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/babel-plugin-const-enum/-/babel-plugin-const-enum-0.0.4.tgz#9149144638b85ec165afbbbd3ba0c9e1c5954624"
+  integrity sha512-JlhnRy7n1gJZDOwJulWBavQ4KF9rCvTzxzMxvZ9rseqKr1u1G6l0IDobU8WwgyEKIsNV0fjIrLfBsw1Ce4blew==
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-syntax-typescript" "^7.3.3"
