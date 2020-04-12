@@ -1,5 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Transforms \`declare const enum\` 1`] = `
+"\\"use strict\\";
+
+declare enum MyEnum {
+  A = 1,
+  B = A,
+  C = '',
+  D = C,
+  E = 1,
+  F,
+}"
+`;
+
+exports[`Transforms chained computed members 1`] = `
+"\\"use strict\\";
+
+enum MyEnum {
+  A = 1,
+  B = A * 2,
+  C,
+  D = C,
+  E = D ** 2,
+  F,
+  G = F * E,
+  H,
+  I = H << 20,
+}"
+`;
+
 exports[`Transforms computed members 1`] = `
 "\\"use strict\\";
 
@@ -28,10 +57,21 @@ enum Direction {
 ;"
 `;
 
+exports[`Transforms string literal properties 1`] = `
+"\\"use strict\\";
+
+enum MyEnum {
+  'A' = 1,
+  \\"B\\" = 2,
+  'C D' = 3,
+  'E F' = 4,
+}"
+`;
+
 exports[`Transforms string members 1`] = `
 "\\"use strict\\";
 
-enum Enum {
+enum MyEnum {
   A = 1,
   B = A,
   C = '',
