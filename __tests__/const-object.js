@@ -12,10 +12,20 @@ it('Transforms no initializers', async () => {
 
   const { code: output } = await transformAsync(input, options);
   expect(output).toMatchSnapshot();
+
+  const Direction = new Function(
+    `${output}
+return Direction;
+`,
+  )();
+  expect(Direction.Left).toBe(0);
+  expect(Direction.Right).toBe(1);
+  expect(Direction.Down).toBe(2);
+  expect(Direction.Up).toBe(3);
 });
 
 it('Transforms string members', async () => {
-  const input = `const enum Enum {
+  const input = `const enum MyEnum {
   A = 1,
   B = A,
   C = '',
@@ -27,6 +37,18 @@ it('Transforms string members', async () => {
 
   const { code: output } = await transformAsync(input, options);
   expect(output).toMatchSnapshot();
+
+  const MyEnum = new Function(
+    `${output}
+return MyEnum;
+`,
+  )();
+  expect(MyEnum.A).toBe(1);
+  expect(MyEnum.B).toBe(1);
+  expect(MyEnum.C).toBe('');
+  expect(MyEnum.D).toBe('');
+  expect(MyEnum.E).toBe(1);
+  expect(MyEnum.F).toBe(2);
 });
 
 it('Transforms computed members', async () => {
@@ -39,7 +61,7 @@ it('Transforms computed members', async () => {
   F,
   G = A * E,
   H = A ** B ** C,
-  I = A << 20
+  I = A << 20,
 }
 `;
 
@@ -72,7 +94,7 @@ it('Transforms chained computed members', async () => {
   F,
   G = F * E,
   H,
-  I = H << 20
+  I = H << 20,
 }
 `;
 
@@ -93,4 +115,54 @@ return MyEnum;
   expect(MyEnum.G).toBe(90);
   expect(MyEnum.H).toBe(91);
   expect(MyEnum.I).toBe(95420416);
+});
+
+it('Transforms string literal properties', async () => {
+  const input = `const enum MyEnum {
+  'A' = 1,
+  "B" = 2,
+  'C D' = 3,
+  'E F' = 4,
+}
+`;
+
+  const { code: output } = await transformAsync(input, options);
+  expect(output).toMatchSnapshot();
+
+  const MyEnum = new Function(
+    `${output}
+return MyEnum;
+`,
+  )();
+  expect(MyEnum.A).toBe(1);
+  expect(MyEnum.B).toBe(2);
+  expect(MyEnum['C D']).toBe(3);
+  expect(MyEnum['E F']).toBe(4);
+});
+
+it('Transforms `declare const enum`', async () => {
+  const input = `declare const enum MyEnum {
+  A = 1,
+  B = A,
+  C = '',
+  D = C,
+  E = 1,
+  F,
+}
+`;
+
+  const { code: output } = await transformAsync(input, options);
+  expect(output).toMatchSnapshot();
+
+  const MyEnum = new Function(
+    `${output}
+return MyEnum;
+`,
+  )();
+  expect(MyEnum.A).toBe(1);
+  expect(MyEnum.B).toBe(1);
+  expect(MyEnum.C).toBe('');
+  expect(MyEnum.D).toBe('');
+  expect(MyEnum.E).toBe(1);
+  expect(MyEnum.F).toBe(2);
 });
