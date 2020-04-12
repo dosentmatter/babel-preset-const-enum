@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-const-enum",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Babel preset for TypeScript `const` enums",
   "repository": "https://github.com/dosentmatter/babel-preset-const-enum",
   "author": "Kevin Lau",
