@@ -3,14 +3,11 @@ import preset from '../src';
 
 const options = {
   filename: 'file.ts',
-  presets: [
-    [preset, { transform: 'constObject' }],
-  ],
+  presets: [[preset, { transform: 'constObject' }]],
 };
 
 it('Transforms no initializers', async () => {
-  const input =
-`const enum Direction { Left, Right, Down, Up };
+  const input = `const enum Direction { Left, Right, Down, Up };
 `;
 
   const { code: output } = await transformAsync(input, options);
@@ -18,8 +15,7 @@ it('Transforms no initializers', async () => {
 });
 
 it('Transforms string members', async () => {
-  const input =
-`const enum Enum {
+  const input = `const enum Enum {
   A = 1,
   B = A,
   C = '',
@@ -34,8 +30,7 @@ it('Transforms string members', async () => {
 });
 
 it('Transforms computed members', async () => {
-  const input =
-`const enum MyEnum {
+  const input = `const enum MyEnum {
   A = 1,
   B = A,
   C,
@@ -51,10 +46,11 @@ it('Transforms computed members', async () => {
   const { code: output } = await transformAsync(input, options);
   expect(output).toMatchSnapshot();
 
-  const MyEnum = (new Function(
-`${output}
+  const MyEnum = new Function(
+    `${output}
 return MyEnum;
-`))();
+`,
+  )();
   expect(MyEnum.A).toBe(1);
   expect(MyEnum.B).toBe(1);
   expect(MyEnum.C).toBe(2);
@@ -67,8 +63,7 @@ return MyEnum;
 });
 
 it('Transforms chained computed members', async () => {
-  const input =
-`const enum MyEnum {
+  const input = `const enum MyEnum {
   A = 1,
   B = A * 2,
   C,
@@ -84,10 +79,11 @@ it('Transforms chained computed members', async () => {
   const { code: output } = await transformAsync(input, options);
   expect(output).toMatchSnapshot();
 
-  const MyEnum = (new Function(
-`${output}
+  const MyEnum = new Function(
+    `${output}
 return MyEnum;
-`))();
+`,
+  )();
   expect(MyEnum.A).toBe(1);
   expect(MyEnum.B).toBe(2);
   expect(MyEnum.C).toBe(3);

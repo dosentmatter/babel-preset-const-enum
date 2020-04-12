@@ -5,7 +5,7 @@ const options = {
   presets: [preset],
 };
 
-  const input = `const enum Direction { Left, Right, Down, Up };
+const input = `const enum Direction { Left, Right, Down, Up };
 `;
 
 it('Transforms *.ts', async () => {
@@ -27,9 +27,7 @@ it('Transforms *.tsx', async () => {
 it('Transforms *.*', async () => {
   const { code: output } = await transformAsync(input, {
     filename: 'file.js',
-    presets: [
-      [preset, { allExtensions: true }],
-    ],
+    presets: [[preset, { allExtensions: true }]],
   });
   expect(output).toMatchSnapshot();
 });
