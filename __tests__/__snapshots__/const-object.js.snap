@@ -13,6 +13,23 @@ const MyEnum = {
 };"
 `;
 
+exports[`Transforms \`export default\` with \`@babel/preset-typescript\` 1`] = `
+"\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+exports.default = void 0;
+const Direction = {
+  Left: 0,
+  Right: 1,
+  Down: 2,
+  Up: 3
+};
+var _default = Direction;
+exports.default = _default;"
+`;
+
 exports[`Transforms chained computed members 1`] = `
 "\\"use strict\\";
 

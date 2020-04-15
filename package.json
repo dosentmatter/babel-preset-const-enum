@@ -34,6 +34,7 @@
     "@babel/core": "^7.5.0",
     "@babel/generator": "^7.5.0",
     "@babel/preset-env": "^7.5.0",
+    "@babel/preset-typescript": "^7.9.0",
     "babel-jest": "^25.3.0",
     "jest": "^25.3.0",
     "prettier": "^2.0.4"
