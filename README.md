@@ -1,4 +1,4 @@
-# babel-preset-const-enum
+# babel-preset-const-enum &middot; [![npm version](https://img.shields.io/npm/v/babel-preset-const-enum.svg?style=flat)](https://www.npmjs.com/package/babel-preset-const-enum) [![npm downloads](https://img.shields.io/npm/dm/babel-preset-const-enum.svg?style=flat)](https://www.npmjs.com/package/babel-preset-const-enum)
 
 > Babel preset for TypeScript `const` enums
 
